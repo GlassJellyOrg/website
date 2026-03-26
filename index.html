@@ -1,0 +1,285 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#fff8f6",
+              "surface-tint": "#7a5555",
+              "primary-fixed": "#ffdad9",
+              "on-primary-container": "#906869",
+              "secondary-fixed-dim": "#cdc5bf",
+              error: "#ba1a1a",
+              "on-secondary-fixed": "#1e1b17",
+              "on-background": "#1a1c1a",
+              "secondary-fixed": "#e9e1db",
+              "on-surface": "#1a1c1a",
+              "on-error-container": "#93000a",
+              tertiary: "#685c56",
+              "surface-variant": "#e3e2e0",
+              "surface-container": "#efeeeb",
+              "on-tertiary-container": "#7c7069",
+              "on-primary-fixed-variant": "#603e3e",
+              "on-secondary-container": "#67625d",
+              "surface-bright": "#faf9f6",
+              "primary-container": "#fff7f7",
+              "surface-container-low": "#f4f3f1",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#f0dfd7",
+              "on-error": "#ffffff",
+              "surface-dim": "#dbdad7",
+              "inverse-surface": "#2f312f",
+              "surface-container-highest": "#e3e2e0",
+              "on-tertiary": "#ffffff",
+              background: "#faf9f6",
+              "secondary-container": "#e6ded8",
+              "on-primary-fixed": "#2e1415",
+              "on-tertiary-fixed-variant": "#4f453f",
+              "on-secondary-fixed-variant": "#4b4642",
+              "on-tertiary-fixed": "#221a15",
+              "surface-container-lowest": "#ffffff",
+              outline: "#7f7572",
+              "error-container": "#ffdad6",
+              secondary: "#635d59",
+              "on-surface-variant": "#4d4543",
+              "inverse-on-surface": "#f2f1ee",
+              "tertiary-fixed-dim": "#d3c3bc",
+              "outline-variant": "#d0c4c1",
+              primary: "#7a5555",
+              "inverse-primary": "#eabbbb",
+              "surface-container-high": "#e9e8e5",
+              "primary-fixed-dim": "#eabbbb",
+              surface: "#faf9f6",
+              "on-secondary": "#ffffff",
+            },
+            fontFamily: {
+              headline: ["Manrope", "sans-serif"],
+              body: ["Manrope", "sans-serif"],
+              label: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(122, 85, 85, 0.05);
+      }
+      .liquid-bg {
+        background:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 247, 247, 0.8) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(234, 187, 187, 0.15) 0%,
+            transparent 50%
+          );
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        cursor: default;
+        -webkit-font-smoothing: antialiased;
+        background: #faf9f6;
+        min-height: 100vh;
+      }
+      @keyframes jelly {
+        0%, 100% { transform: scale(1, 1); }
+        25% { transform: scale(0.9, 1.1); }
+        50% { transform: scale(1.1, 0.9); }
+        75% { transform: scale(0.95, 1.05); }
+      }
+      .jelly-effect:hover {
+        animation: jelly 0.6s both;
+      }
+
+      /* Parallax Star Field */
+      .star-field {
+        position: fixed;
+        inset: 0;
+        z-index: -20;
+        overflow: hidden;
+        background: #faf9f6;
+      }
+
+      .stars-sm, .stars-md, .stars-lg {
+        background: transparent;
+        animation: animStar linear infinite;
+      }
+
+      .stars-sm { width: 1px; height: 1px; opacity: 1; }
+      .stars-md { width: 2px; height: 2px; opacity: 0.9; }
+      .stars-lg { width: 3px; height: 3px; opacity: 0.8; }
+
+      .stars-sm::after, .stars-md::after, .stars-lg::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        background: transparent;
+      }
+
+      .stars-sm::after { width: 1px; height: 1px; }
+      .stars-md::after { width: 2px; height: 2px; }
+      .stars-lg::after { width: 3px; height: 3px; }
+
+      @keyframes animStar {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+      }
+    </style>
+  </head>
+  <body
+    class="font-body text-on-surface overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-[#faf9f6]/70 backdrop-blur-xl"
+    >
+      <div
+        class="flex justify-between items-center w-full px-8 md:px-16 py-6 max-w-[1440px] mx-auto"
+      >
+        <span
+          class="text-2xl font-bold tracking-tighter text-[#1a1c1a] font-headline"
+          >GlassJelly</span
+        >
+      </div>
+    </nav>
+    <main class="relative pt-24">
+      <!-- Parallax Star Field -->
+      <div class="star-field">
+        <div id="stars" class="stars-sm" style="animation-duration: 50s"></div>
+        <div id="stars2" class="stars-md" style="animation-duration: 100s"></div>
+        <div id="stars3" class="stars-lg" style="animation-duration: 150s"></div>
+      </div>
+      <!-- Hero Section -->
+      <section
+        class="relative px-8 md:px-16 pt-20 pb-32 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+      >
+        <!-- Content Left -->
+        <div class="lg:col-span-6 z-10">
+          <h1
+            class="text-6xl md:text-8xl font-light tracking-tight text-on-surface mb-8 leading-[1.1]"
+          >
+            Great things <br />are
+            <span class="italic font-normal text-primary">coming.</span>
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-on-secondary-container font-light leading-relaxed max-w-xl mb-12"
+          >
+            We are meticulously crafting the future of bespoke nail couture.
+            Luminous, precise, and endlessly versatile.
+          </p>
+          <!-- Newsletter Signup -->
+          <div class="relative max-w-md">
+            <div
+              class="glass-panel p-2 rounded-full border border-outline-variant/20 shadow-sm flex items-center group focus-within:ring-2 focus-within:ring-primary/20 transition-all"
+            >
+              <input
+                id="email-input"
+                class="bg-transparent border-none focus:ring-0 flex-grow px-6 py-2 text-on-surface placeholder:text-outline/60 font-light"
+                placeholder="Email Address"
+                type="email"
+              />
+              <button
+                onclick="handleNotifyMe()"
+                class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium transition-transform active:scale-95 jelly-effect"
+              >
+                Notify Me
+              </button>
+            </div>
+            <p class="mt-4 text-xs tracking-widest uppercase text-outline px-6">
+              Join the exclusive waitlist
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-12 absolute bottom-0">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-8 md:px-16 w-full opacity-60"
+      >
+        <span
+          class="text-sm font-manrope uppercase tracking-widest text-primary mb-6 md:mb-0"
+        >
+          © 2026 GlassJelly Studio
+        </span>
+      </div>
+    </footer>
+    <script>
+      const themeColors = ['#7a5555', '#906869', '#eabbbb', '#685c56'];
+      
+      function generateStars(n) {
+        let value = "";
+        for (let i = 0; i < n; i++) {
+          const color = themeColors[Math.floor(Math.random() * themeColors.length)];
+          value += `${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px ${color}`;
+          if (i < n - 1) value += ", ";
+        }
+        return value;
+      }
+
+      const shadowsSm = generateStars(700);
+      const shadowsMd = generateStars(200);
+      const shadowsLg = generateStars(100);
+
+      document.getElementById("stars").style.boxShadow = shadowsSm;
+      document.getElementById("stars2").style.boxShadow = shadowsMd;
+      document.getElementById("stars3").style.boxShadow = shadowsLg;
+      
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .stars-sm::after { box-shadow: ${shadowsSm}; }
+        .stars-md::after { box-shadow: ${shadowsMd}; }
+        .stars-lg::after { box-shadow: ${shadowsLg}; }
+      `;
+      document.head.appendChild(style);
+
+      function handleNotifyMe() {
+        const emailInput = document.getElementById("email-input");
+        const email = emailInput.value;
+        const subject = encodeURIComponent("Waitlist Subscription");
+        const body = encodeURIComponent(
+          `Please add me to the waitlist. My email is: ${email}`,
+        );
+        window.location.href = `mailto:hello@glassjelly.studio?subject=${subject}&body=${body}`;
+      }
+    </script>
+  </body>
+</html>
